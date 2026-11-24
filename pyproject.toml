@@ -1,0 +1,9 @@
+[project]
+name = "virtual-fingers"
+version = "0.1.0"
+description = "Control Bluetooth LE smart-home devices (SwitchBot, Shelly) from a Mac, with OpenCode tools"
+license = "MIT"
+requires-python = ">=3.14"
+dependencies = [
+    "bleak>=3.1.0",
+]
