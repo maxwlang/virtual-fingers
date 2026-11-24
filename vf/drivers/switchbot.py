@@ -81,7 +81,7 @@ async def _command(target: Target, payload: bytes, ack_timeout: float = 8.0) -> 
         try:
             return await asyncio.wait_for(box.get(), ack_timeout)
         except TimeoutError:
-            raise RuntimeError(f"sent {payload.hex()} — no notify response in {ack_timeout:.0f}s")
+            raise RuntimeError(f"sent {payload.hex()}; no notify response in {ack_timeout:.0f}s")
 
 
 async def _send(target: Target, mac: str, payload: bytes, label: str, wait: float = 0) -> str:
@@ -203,7 +203,7 @@ DRIVER = SwitchBot(
         description=(
             "Actuate a SwitchBot Bot by its Bluetooth MAC address (get MACs from the "
             "list_switchbots tool). Actions: `press` (one press, always works), `hold` "
-            "(extend the arm and keep it out for N seconds, default 10 — pass `seconds`), "
+            "(extend the arm and keep it out for N seconds, default 10; pass `seconds`), "
             "`on`/`off` (Bot must be in switch mode), `back` (retract the arm), `info` "
             "(read-only: battery, firmware, press/switch mode). Locating and connecting "
             "over BLE can take up to ~45 seconds, and a hold takes its duration on top, "
